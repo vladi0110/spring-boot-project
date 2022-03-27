@@ -25,11 +25,11 @@ public class Advert {
     @Column(name = "hp", columnDefinition = "int", nullable = false)
     private int horsePower;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "engine_type_id", nullable = false)
     private EngineType engineType;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "type_id", nullable = false)
     private Type type;
 
@@ -45,15 +45,15 @@ public class Advert {
     @Column(name = "vin", columnDefinition = "varchar(30)")
     private String vin;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "transmission_id", nullable = false)
     private Transmission transmission;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "euro_standard_id", nullable = false)
     private EuroStandard euroStandard;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
@@ -72,10 +72,10 @@ public class Advert {
     @Column(name = "additional_info", columnDefinition = "blob")
     private String additionalInfo;
 
-    @OneToMany(mappedBy = "advert", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "advert", fetch = FetchType.LAZY, orphanRemoval = true)
     private List<Picture> pictures;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "advert_to_specification",
             joinColumns = @JoinColumn(name = "advert_id"),

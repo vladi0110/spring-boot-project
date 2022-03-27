@@ -14,7 +14,7 @@ public class Right {
     @Column(name = "name", columnDefinition = "varchar(100)", nullable = false)
     private String name;
 
-    @ManyToMany(mappedBy = "rights")
+    @ManyToMany(mappedBy = "rights", fetch = FetchType.LAZY)
     private Set<Role> roles;
 
     public Right() {

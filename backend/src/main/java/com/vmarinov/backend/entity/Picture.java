@@ -13,7 +13,7 @@ public class Picture {
     @Column(name = "location", columnDefinition = "varchar(200)", nullable = false)
     private String location;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "advert_id", nullable = false)
     private Advert advert;
 

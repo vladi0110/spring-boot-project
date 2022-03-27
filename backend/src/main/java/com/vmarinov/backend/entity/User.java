@@ -19,7 +19,7 @@ public class User {
     @Column(name = "phone_number", columnDefinition = "varchar(20)", nullable = false)
     private String phoneNumber;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "role_id", nullable = false)
     private Role role;
 

@@ -18,7 +18,7 @@ public class Specification {
     @Column(name = "name", columnDefinition = "varchar(200)", nullable = false)
     private String name;
 
-    @ManyToMany(mappedBy = "specifications")
+    @ManyToMany(mappedBy = "specifications", fetch = FetchType.LAZY)
     private Set<Advert> adverts;
 
     public Specification() {
